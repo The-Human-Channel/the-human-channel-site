@@ -1,3 +1,3 @@
 export default {
-  tutorialSidebar: [{type: 'doc', id: 'intro'}],
+  tutorialSidebar: [{ type: 'doc', id: 'intro', label: 'Introduction' }]
 };

@@ -1,9 +1,14 @@
 ---
-id: intro
-title: Whitepapers
+sidebar_position: 1
 ---
 
 # The Human Channel Whitepapers
 
-We are restoring trust, permission, and human interaction in the AI era.  
-Stay tuned for our upcoming whitepapers.
+Welcome to The Human Channel Knowledge Base.
+
+- ✅ Smart Packet Identity Layer (SPID)
+- ✅ Permissioned AI Protocols
+- ✅ Trust Layer Architecture
+- ✅ Compliance Frameworks for AI Interactions
+
+> Full whitepapers will be published here soon.

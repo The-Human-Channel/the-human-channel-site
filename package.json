@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "serve": "serve -s build",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "GIT_USER=the-human-channel docusaurus deploy",
-    "predeploy": "docusaurus build"
+    "predeploy": "docusaurus build",
+    "serve": "serve -s build"
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.0",
