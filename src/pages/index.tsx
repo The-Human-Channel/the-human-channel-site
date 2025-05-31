@@ -8,7 +8,7 @@ export default function Home(): JSX.Element {
       description="Restoring trust, permission, and human interaction in the AI era."
     >
       <main style={{padding: '2rem', textAlign: 'center'}}>
-        <h1>Welcome to The Human Channel</h1>
+        <h1>The Human Channel</h1>
         <p>Restoring trust, permission, and human interaction in the AI era.</p>
       </main>
     </Layout>
