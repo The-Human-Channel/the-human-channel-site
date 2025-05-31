@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
+    "serve": "serve -s build",
     "start": "docusaurus start",
     "build": "docusaurus build",
     "deploy": "GIT_USER=the-human-channel docusaurus deploy",
@@ -11,6 +12,8 @@
   "dependencies": {
     "@docusaurus/core": "^3.8.0",
     "@docusaurus/preset-classic": "^3.8.0"
+  },
+  "devDependencies": {
+    "serve": "^14.2.4"
   }
 }
-
