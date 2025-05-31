@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://the-human-channel.github.io/the-human-channel-site/blog</id>
+    <title>The Human Channel Blog</title>
+    <updated>2025-06-01T00:00:00.000Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://the-human-channel.github.io/the-human-channel-site/blog"/>
+    <subtitle>The Human Channel Blog</subtitle>
+    <icon>https://the-human-channel.github.io/the-human-channel-site/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[Scarcity Is Dead: Why Human Interaction Will Be the Next Great Asset Class]]></title>
+        <id>https://the-human-channel.github.io/the-human-channel-site/blog/scarcity-is-dead</id>
+        <link href="https://the-human-channel.github.io/the-human-channel-site/blog/scarcity-is-dead"/>
+        <updated>2025-06-01T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[Knowledge is no longer scarce. AI collapsed it. The next scarce commodity? Human interaction.]]></summary>
+        <content type="html"><![CDATA[<blockquote>
+<p>Knowledge is no longer scarce. AI collapsed it. The next scarce commodity? <strong>Human interaction.</strong></p>
+</blockquote>
+<p>For centuries, knowledge drove value creation. Businesses competed on information asymmetry. But AI agents have erased that. Now, instant access to knowledge is free.</p>
+<p>In this world, <em>trust, permission, and authentic human interaction</em> become the highest form of value.</p>
+<p><strong>The Human Channel</strong> is dedicated to building this permission-based interaction layer:<br>
+<!-- -->Smart Packets, PulseID, SPID Protocol, AI Agents with trusted rails.</p>
+<p>This is not just the future of AI.<br>
+<!-- -->It's the future of human commerce.</p>]]></content>
+        <author>
+            <name>Rick Jewett</name>
+        </author>
+        <category label="vision" term="vision"/>
+        <category label="future" term="future"/>
+        <category label="AI" term="AI"/>
+        <category label="human-interaction" term="human-interaction"/>
+    </entry>
+</feed>

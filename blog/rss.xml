@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+    <channel>
+        <title>The Human Channel Blog</title>
+        <link>https://the-human-channel.github.io/the-human-channel-site/blog</link>
+        <description>The Human Channel Blog</description>
+        <lastBuildDate>Sun, 01 Jun 2025 00:00:00 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <item>
+            <title><![CDATA[Scarcity Is Dead: Why Human Interaction Will Be the Next Great Asset Class]]></title>
+            <link>https://the-human-channel.github.io/the-human-channel-site/blog/scarcity-is-dead</link>
+            <guid>https://the-human-channel.github.io/the-human-channel-site/blog/scarcity-is-dead</guid>
+            <pubDate>Sun, 01 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Knowledge is no longer scarce. AI collapsed it. The next scarce commodity? Human interaction.]]></description>
+            <content:encoded><![CDATA[<blockquote>
+<p>Knowledge is no longer scarce. AI collapsed it. The next scarce commodity? <strong>Human interaction.</strong></p>
+</blockquote>
+<p>For centuries, knowledge drove value creation. Businesses competed on information asymmetry. But AI agents have erased that. Now, instant access to knowledge is free.</p>
+<p>In this world, <em>trust, permission, and authentic human interaction</em> become the highest form of value.</p>
+<p><strong>The Human Channel</strong> is dedicated to building this permission-based interaction layer:<br>
+<!-- -->Smart Packets, PulseID, SPID Protocol, AI Agents with trusted rails.</p>
+<p>This is not just the future of AI.<br>
+<!-- -->It's the future of human commerce.</p>]]></content:encoded>
+            <category>vision</category>
+            <category>future</category>
+            <category>AI</category>
+            <category>human-interaction</category>
+        </item>
+    </channel>
+</rss>
