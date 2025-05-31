@@ -1,7 +1,7 @@
 ---
 slug: scarcity-is-dead
 title: "Scarcity Is Dead: The Rise of Human Interaction in the AI Economy"
-authors: Rick Jewett
+authors: [rickjewett]
 tags: [AI, human interaction, future, vision, the human channel]
 ---
 
