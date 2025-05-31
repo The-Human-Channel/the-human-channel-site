@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkthe_human_channel_site=self.webpackChunkthe_human_channel_site||[]).push([[472],{5513:e=>{e.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Scarcity Is Dead","permalink":"/the-human-channel-site/blog/scarcity-is-dead","unlisted":false,"date":"2025-06-01T00:00:00.000Z"}]}')}}]);
