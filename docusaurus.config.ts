@@ -7,6 +7,7 @@ const config: Config = {
   tagline: 'Restoring trust, permission, and human interaction in the AI era.',
   url: 'https://the-human-channel.github.io',
   baseUrl: '/the-human-channel-site/',
+  favicon: 'img/favicon.ico',
   organizationName: 'the-human-channel',
   projectName: 'the-human-channel-site',
 
@@ -60,12 +61,6 @@ const config: Config = {
         {
           title: 'Docs',
           items: [{label: 'Whitepapers', to: '/docs/intro'}],
-        },
-        {
-          title: 'Community',
-          items: [
-            {label: 'X', href: 'https://x.com/the-human-channel'},
-          ],
         },
         {
           title: 'More',

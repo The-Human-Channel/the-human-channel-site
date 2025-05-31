@@ -1,7 +1,7 @@
 ---
 slug: scarcity-is-dead
 title: Scarcity Is Dead
-authors: Rick Jewett
+authors: [rickjewett]
 tags: [AI, human interaction, future, vision]
 ---
 
