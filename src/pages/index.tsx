@@ -12,7 +12,7 @@ export default function Home(): JSX.Element {
           Knowledge is no longer scarce. AI has made information instantly abundant. But human connection, trust, permission, and real interaction — those are now the rarest and most valuable assets.
         </p>
         <p style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
-          The Human Channel was created to explore this shift. As businesses, creators, and societies adapt to AI-powered abundance, we believe the next economy will be built around <b>trusted human interaction</b>.
+          The Human Channel was created to explore this shift. As businesses, creators, and societies adapt to AI-powered abundance, we believe the next economy will be built around <strong>trusted human interaction</strong>.
         </p>
         <p style={{ fontSize: '1.2rem', lineHeight: '1.6' }}>
           This is not a tech blog. This is not hype. This is about how humans will work with AI — not against it — to create businesses, relationships, and systems rooted in trust and dignity.
