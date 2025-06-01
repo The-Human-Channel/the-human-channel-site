@@ -8,7 +8,7 @@ const config: Config = {
   title: 'The Human Channel',
   tagline: 'Restoring trust, permission, and human interaction in the AI era.',
   url: 'https://the-human-channel.github.io',
-  baseUrl: isProd ? '/the-human-channel-site/' : '/',
+  baseUrl: '/the-human-channel-site/',
   favicon: 'img/favicon.ico',
   organizationName: 'the-human-channel',
   projectName: 'the-human-channel-site',
@@ -42,7 +42,7 @@ const config: Config = {
   title: 'The Human Channel',
   logo: {
     alt: 'The Human Channel Logo',
-    src: '/the-human-channel-site/img/logo.svg',
+    src: 'img/logo.svg',
   },
   items: [
     {to: '/blog', label: 'Blog', position: 'left'},
