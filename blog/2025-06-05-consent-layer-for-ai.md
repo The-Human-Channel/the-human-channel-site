@@ -1,10 +1,11 @@
 ---
 slug: consent-layer-for-ai
-title: The Consent Layer for AI: Why Permission Will Save AI
+title: "The Consent Layer for AI: Why Permission Will Save AI"
 authors: rickjewett
 tags: [AI, permission, consent layer, trust, pulseid, future]
 date: 2025-06-05
 ---
+
 
 ## The Problem Nobody Wants to Talk About
 
