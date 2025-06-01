@@ -80,7 +80,7 @@
 <p><em>Join us as we build the rails for permission-first AI communication.</em></p>]]></content>
         <author>
             <name>Rick Jewett</name>
-            <uri>https://the-human-channel.github.io/</uri>
+            <uri>https://the-human-channel.github.io</uri>
         </author>
         <category label="AI" term="AI"/>
         <category label="human interaction" term="human interaction"/>
@@ -128,7 +128,7 @@
 <p>Which side will you build for?</p>]]></content>
         <author>
             <name>Rick Jewett</name>
-            <uri>https://the-human-channel.github.io/</uri>
+            <uri>https://the-human-channel.github.io</uri>
         </author>
         <category label="AI" term="AI"/>
         <category label="attention economy" term="attention economy"/>
