@@ -2,11 +2,57 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://the-human-channel.github.io/the-human-channel-site/blog</id>
     <title>The Human Channel Blog</title>
-    <updated>2025-06-01T00:00:00.000Z</updated>
+    <updated>2025-06-05T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://the-human-channel.github.io/the-human-channel-site/blog"/>
     <subtitle>The Human Channel Blog</subtitle>
     <icon>https://the-human-channel.github.io/the-human-channel-site/img/favicon.ico</icon>
+    <entry>
+        <title type="html"><![CDATA[The Human-AI Partnership: Our Next Great Collaboration]]></title>
+        <id>https://the-human-channel.github.io/the-human-channel-site/blog/human-ai-partnership</id>
+        <link href="https://the-human-channel.github.io/the-human-channel-site/blog/human-ai-partnership"/>
+        <updated>2025-06-05T00:00:00.000Z</updated>
+        <summary type="html"><![CDATA[The future is not "humans vs. AI."]]></summary>
+        <content type="html"><![CDATA[<p>The future is not "humans vs. AI."<br>
+<!-- -->The future is <strong>humans with AI.</strong></p>
+<p>The Human Channel exists because we see what's coming:</p>
+<ul>
+<li>AI will handle knowledge retrieval, analysis, synthesis.</li>
+<li>Humans will handle trust, judgment, permission, nuance.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="were-entering-the-age-of">We’re entering the age of:<a href="https://the-human-channel.github.io/the-human-channel-site/blog/human-ai-partnership#were-entering-the-age-of" class="hash-link" aria-label="Direct link to We’re entering the age of:" title="Direct link to We’re entering the age of:">​</a></h2>
+<ul>
+<li><strong>AI Amplification</strong> — every person equipped with personal cognitive assistants.</li>
+<li><strong>Human Filters</strong> — where relationships, values, and trust become essential.</li>
+<li><strong>Permission-Based Commerce</strong> — where interruption dies, and <em>invitation</em> wins.</li>
+</ul>
+<hr>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="the-work-ahead">The Work Ahead<a href="https://the-human-channel.github.io/the-human-channel-site/blog/human-ai-partnership#the-work-ahead" class="hash-link" aria-label="Direct link to The Work Ahead" title="Direct link to The Work Ahead">​</a></h2>
+<p>We will use The Human Channel to explore questions like:</p>
+<ul>
+<li>How do we train AI to reflect human dignity?</li>
+<li>How do businesses earn trust in an AI-filtered world?</li>
+<li>How do we preserve meaningful human interaction when answers are free?</li>
+</ul>
+<hr>
+<blockquote>
+<p>This platform isn't about hype cycles or technical specs.<br>
+<!-- -->It's about the practical, human-centered work of coexisting with AI.</p>
+</blockquote>
+<p><strong>The Human Channel is not fighting the future.</strong><br>
+<!-- -->We are preparing for it.</p>
+<hr>
+<p>Welcome to the partnership.</p>]]></content>
+        <author>
+            <name>Rick Jewett</name>
+        </author>
+        <category label="AI" term="AI"/>
+        <category label="humanity" term="humanity"/>
+        <category label="collaboration" term="collaboration"/>
+        <category label="future" term="future"/>
+        <category label="trust" term="trust"/>
+    </entry>
     <entry>
         <title type="html"><![CDATA[Scarcity Is Dead: The Rise of Human Interaction in the AI Economy]]></title>
         <id>https://the-human-channel.github.io/the-human-channel-site/blog/scarcity-is-dead</id>
