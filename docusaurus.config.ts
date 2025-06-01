@@ -37,7 +37,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/docusaurus-social-card.jpg',
+    image: 'img/thc-social-card.png',
     navbar: {
       title: 'The Human Channel',
       logo: {
