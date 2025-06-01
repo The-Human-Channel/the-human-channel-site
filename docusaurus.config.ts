@@ -39,18 +39,22 @@ const config: Config = {
   themeConfig: {
     image: 'img/docusaurus-social-card.jpg',
     navbar: {
-      title: 'The Human Channel',
-      logo: { alt: 'The Human Channel Logo', src: 'img/logo.svg' },
-      items: [
-        { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/docs/intro', label: 'Whitepapers', position: 'left' },
-        {
-          href: 'https://github.com/the-human-channel/the-human-channel-site',
-          label: 'GitHub',
-          position: 'right'
-        }
-      ]
+  title: 'The Human Channel',
+  logo: {
+    alt: 'The Human Channel Logo',
+    src: '/the-human-channel-site/img/logo.svg',
+  },
+  items: [
+    {to: '/blog', label: 'Blog', position: 'left'},
+    {to: '/docs/intro', label: 'Whitepapers', position: 'left'},
+    {
+      href: 'https://github.com/the-human-channel/the-human-channel-site',
+      label: 'GitHub',
+      position: 'right',
     },
+  ],
+},
+
     footer: {
       style: 'dark',
       links: [
