@@ -1,6 +1,6 @@
 ---
 slug: human-ai-partnership
-title: The Human-AI Partnership: Our Next Great Collaboration
+title: "The Human-AI Partnership: Our Next Great Collaboration"
 authors: rickjewett
 tags: [AI, humanity, collaboration, future, trust]
 ---
