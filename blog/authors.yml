@@ -1,5 +1,6 @@
 rickjewett:
   name: Rick Jewett
   title: Founder & Visionary, The Human Channel
-  url: https://the-human-channel.github.io/
-  image_url: img/logo.svg
+  url: https://the-human-channel.github.io
+  image_url: /the-human-channel-site/img/logo.svg
+
