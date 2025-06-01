@@ -42,7 +42,7 @@ const config: Config = {
   title: 'The Human Channel',
   logo: {
     alt: 'The Human Channel Logo',
-    src: 'img/logo.svg',
+    src: '/logo.svg',
   },
   items: [
     {to: '/blog', label: 'Blog', position: 'left'},
