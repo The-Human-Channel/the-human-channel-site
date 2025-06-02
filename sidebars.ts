@@ -1,6 +1,3 @@
-export default {
-  tutorialSidebar: [{ type: 'doc', id: 'intro', label: 'Introduction' }]
-};
 module.exports = {
   docs: [
     {
@@ -12,47 +9,66 @@ module.exports = {
         'about/vision',
         'about/values',
         'about/philosophy',
+        'about/team',
       ],
     },
     {
       type: 'category',
-      label: 'Philosophy',
+      label: 'Core Philosophy & Frameworks',
       collapsed: true,
       items: [
         'philosophy/consent-first-ai',
         'philosophy/human-in-the-loop',
         'philosophy/authentic-voice',
         'philosophy/trust-stack',
+        'philosophy/permission-identity-trust',
+        'philosophy/voice-ecosystem',
+        'philosophy/ai-governance',
       ],
     },
     {
       type: 'category',
-      label: 'Protocols',
+      label: 'Protocols & Standards',
       collapsed: true,
       items: [
         'protocols/spid-protocol-overview',
         'protocols/smart-packet-spec',
         'protocols/consent-layer-spec',
+        'protocols/identity-protocols',
+        'protocols/clean-voice-detection',
       ],
     },
     {
       type: 'category',
-      label: 'Policy',
+      label: 'Policy & Governance',
       collapsed: true,
       items: [
         'policy/regulator-packet',
+        'policy/trust-stack-explainer',
         'policy/spid-compliance-stack',
         'policy/privacy-position',
       ],
     },
     {
       type: 'category',
-      label: 'Thought Leadership',
+      label: 'Industry Thought Leadership',
       collapsed: true,
       items: [
-        'thought-leadership/human-interaction-economy',
         'thought-leadership/ai-polarization',
-        'thought-leadership/noise-economy',
+        'thought-leadership/human-interaction-economy',
+        'thought-leadership/knowledge-scarcity-collapse',
+        'thought-leadership/future-of-consent',
+        'thought-leadership/ai-identity-layer',
+        'thought-leadership/the-noise-economy',
+      ],
+    },
+    {
+      type: 'category',
+      label: 'Open Collaboration',
+      collapsed: true,
+      items: [
+        'contributing',
+        'roadmap',
       ],
     },
   ],
