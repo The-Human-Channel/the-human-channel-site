@@ -20,24 +20,25 @@ const config: Config = {
 
   presets: [
     [
-      'classic',
+      '@docusaurus/preset-classic',
       {
         docs: {
-          sidebarPath: './sidebars.ts',
-          routeBasePath: '/docs'
+          path: 'docs',
+          routeBasePath: '/',
+          sidebarPath: require.resolve('./sidebars.js'),
         },
         blog: {
-          showReadingTime: true
+          showReadingTime: true,
         },
         theme: {
-          customCss: './src/css/custom.css'
-        }
-      } satisfies Preset.Options
-    ]
+          customCss: require.resolve('./src/css/custom.css'),
+        },
+      },
+    ],
   ],
 
   themeConfig: {
-    image: 'img/thc-social-card.png',
+    image: '/assets/og-images/og-main.png',
     navbar: {
       title: 'The Human Channel',
       logo: {
@@ -46,7 +47,7 @@ const config: Config = {
       },
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/docs/intro', label: 'Whitepapers', position: 'left' },
+        { to: '/', label: 'Whitepapers', position: 'left' },
         {
           href: 'https://github.com/the-human-channel/the-human-channel-site',
           label: 'GitHub',
@@ -57,7 +58,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        { title: 'Docs', items: [{ label: 'Whitepapers', to: '/docs/intro' }] },
+        { title: 'Docs', items: [{ label: 'Whitepapers', to: '/' }] },
         { title: 'More', items: [{ label: 'Blog', to: '/blog' }] }
       ],
       copyright: `Copyright © ${new Date().getFullYear()} The Human Channel.`
