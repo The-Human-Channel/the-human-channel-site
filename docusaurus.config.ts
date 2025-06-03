@@ -21,10 +21,10 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-  path: 'docs',
-  routeBasePath: '/',
-  sidebarPath: require.resolve('./sidebars.ts'),
-    },
+          path: 'docs',
+          routeBasePath: '/docs',
+          sidebarPath: require.resolve('./sidebars.ts'),
+        },
         blog: {
           showReadingTime: true,
         },
@@ -44,7 +44,7 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: '/', label: 'Docs', position: 'left' },
+        { to: '/docs', label: 'Docs', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
         {
           href: 'https://github.com/the-human-channel/the-human-channel-site',
@@ -56,7 +56,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        { title: 'Docs', items: [{ label: 'Documents', to: '/' }] },
+        { title: 'Docs', items: [{ label: 'Documents', to: '/docs' }] },
         { title: 'More', items: [{ label: 'Blog', to: '/blog' }] }
       ],
       copyright: 'Copyright © 2025 The Human Channel.'
