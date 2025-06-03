@@ -7,7 +7,7 @@ export default function KnowledgeGraph() {
 
   useEffect(() => {
     if (cyRef.current) {
-      fetch('/the-human-channel-site/docs/graph/knowledge-graph.json')
+      fetch('/graph/knowledge-graph.json')
         .then(res => res.json())
         .then(data => {
           const cy = cytoscape({
