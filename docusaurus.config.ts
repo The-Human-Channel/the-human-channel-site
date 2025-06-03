@@ -62,7 +62,7 @@ const config: Config = {
         { title: 'Docs', items: [{ label: 'Whitepapers', to: '/' }] },
         { title: 'More', items: [{ label: 'Blog', to: '/blog' }] }
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} The Human Channel.`
+      copyright: Copyright © ${new Date().getFullYear()} The Human Channel.
     },
     prism: {
       theme: prismThemes.github,
@@ -72,3 +72,5 @@ const config: Config = {
 };
 
 export default config;
+
+
