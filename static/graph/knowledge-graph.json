@@ -4,43 +4,57 @@
       "id": "spid-protocol",
       "label": "SPID Protocol v1",
       "type": "Protocol",
-      "docPath": "spid-protocol/technical-spec-v1"
+      "docPath": "spid-protocol/technical-spec-v1",
+      "summary": "Defines Smart Packet Identity and routing architecture.",
+      "version": "v1.0"
     },
     {
       "id": "consent-layer",
       "label": "Consent Layer Spec",
       "type": "Protocol",
-      "docPath": "protocols/consent-layer-spec"
+      "docPath": "protocols/consent-layer-spec",
+      "summary": "Specifies mechanisms for AI consent capture and verification.",
+      "version": "v1.0"
     },
     {
       "id": "smart-packet",
       "label": "Smart Packet Spec",
       "type": "Protocol",
-      "docPath": "protocols/smart-packet-spec"
+      "docPath": "protocols/smart-packet-spec",
+      "summary": "Defines packet format for Smart Packets carrying identity, consent, and intent.",
+      "version": "v1.0"
     },
     {
       "id": "trust-stack",
       "label": "Trust Stack",
       "type": "Concept",
-      "docPath": "philosophy/trust-stack"
+      "docPath": "philosophy/trust-stack",
+      "summary": "Conceptual framework for AI governance and protocol enforcement.",
+      "version": "v1.0"
     },
     {
       "id": "privacy-policy",
       "label": "Privacy Position",
       "type": "Policy",
-      "docPath": "policy/privacy-position"
+      "docPath": "policy/privacy-position",
+      "summary": "Policy stance on privacy, transparency, and data control.",
+      "version": "v1.0"
     },
     {
       "id": "regulator-packet",
       "label": "Regulator Briefing Packet",
       "type": "Policy",
-      "docPath": "policy/regulator-packet"
+      "docPath": "policy/regulator-packet",
+      "summary": "Briefing materials for regulator review of protocol governance.",
+      "version": "v1.0"
     },
     {
       "id": "voice-detection",
       "label": "Clean Voice Detection",
       "type": "Standard",
-      "docPath": "protocols/clean-voice-detection"
+      "docPath": "protocols/clean-voice-detection",
+      "summary": "Standard for differentiating authentic human voice from synthetic generation.",
+      "version": "v1.0"
     }
   ],
   "edges": [

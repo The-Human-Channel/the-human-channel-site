@@ -10,6 +10,7 @@ function useIsFullscreen() {
 
 export default function KnowledgeGraph() {
   const cyRef = useRef<HTMLDivElement>(null);
+  const tooltipRef = useRef<HTMLDivElement>(null);
   const isFullscreen = useIsFullscreen();
 
   useEffect(() => {
@@ -89,6 +90,24 @@ export default function KnowledgeGraph() {
             const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
             window.open(docPath, '_blank');
           });
+
+          // Tooltip event handlers (proper placement)
+          cy.on('mouseover', 'node', (evt) => {
+            const nodeData = evt.target.data();
+            if (tooltipRef.current) {
+              tooltipRef.current.style.display = 'block';
+              tooltipRef.current.style.left = `${evt.originalEvent.pageX + 10}px`;
+              tooltipRef.current.style.top = `${evt.originalEvent.pageY + 10}px`;
+              tooltipRef.current.innerHTML = `<strong>${nodeData.label}</strong><br/>${nodeData.summary}<br/><em>Version: ${nodeData.version}</em>`;
+            }
+          });
+
+          cy.on('mouseout', 'node', () => {
+            if (tooltipRef.current) {
+              tooltipRef.current.style.display = 'none';
+            }
+          });
+
         });
     }
   }, []);
@@ -96,14 +115,42 @@ export default function KnowledgeGraph() {
   if (isFullscreen) {
     return (
       <div style={{ height: '100vh', width: '100%', backgroundColor: '#fff' }}>
-        <div style={{ height: '100%', width: '100%' }} ref={cyRef}></div>
+        <div style={{ height: '100%', width: '100%', position: 'relative' }}>
+          <div ref={cyRef} style={{ height: '100%', width: '100%' }}></div>
+          <div ref={tooltipRef} style={{
+            position: 'absolute',
+            backgroundColor: '#333',
+            color: '#fff',
+            padding: '8px',
+            borderRadius: '5px',
+            display: 'none',
+            pointerEvents: 'none',
+            fontSize: '12px',
+            maxWidth: '200px',
+            zIndex: 1000
+          }} />
+        </div>
       </div>
     );
   }
 
   return (
     <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
-      <div style={{ height: '90vh', width: '100%' }} ref={cyRef}></div>
+      <div style={{ height: '90vh', width: '100%', position: 'relative' }}>
+        <div ref={cyRef} style={{ height: '100%', width: '100%' }}></div>
+        <div ref={tooltipRef} style={{
+          position: 'absolute',
+          backgroundColor: '#333',
+          color: '#fff',
+          padding: '8px',
+          borderRadius: '5px',
+          display: 'none',
+          pointerEvents: 'none',
+          fontSize: '12px',
+          maxWidth: '200px',
+          zIndex: 1000
+        }} />
+      </div>
     </Layout>
   );
 }
