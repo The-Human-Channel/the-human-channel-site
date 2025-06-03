@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkthe_human_channel_site=self.webpackChunkthe_human_channel_site||[]).push([[4169],{2027:e=>{e.exports=JSON.parse('{"authors":[{"name":"Rick Jewett","title":"Founder & Visionary, The Human Channel","imageURL":"https://the-human-channel.github.io/the-human-channel-site/img/logo.svg","key":"rickjewett","page":null,"count":4}]}')}}]);
