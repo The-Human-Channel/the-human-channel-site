@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import cytoscape from 'cytoscape';
 
@@ -12,6 +12,10 @@ export default function KnowledgeGraph() {
   const cyRef = useRef<HTMLDivElement>(null);
   const tooltipRef = useRef<HTMLDivElement>(null);
   const isFullscreen = useIsFullscreen();
+
+  const [cyInstance, setCyInstance] = useState<any>(null);
+  const [visibleTypes, setVisibleTypes] = useState<string[]>(['Protocol', 'Concept', 'Policy', 'Standard']);
+  const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
     if (cyRef.current) {
@@ -91,7 +95,6 @@ export default function KnowledgeGraph() {
             window.open(docPath, '_blank');
           });
 
-          // Tooltip event handlers (proper placement)
           cy.on('mouseover', 'node', (evt) => {
             const nodeData = evt.target.data();
             if (tooltipRef.current) {
@@ -108,9 +111,20 @@ export default function KnowledgeGraph() {
             }
           });
 
+          setCyInstance(cy);
         });
     }
   }, []);
+
+  useEffect(() => {
+    if (!cyInstance) return;
+    cyInstance.nodes().forEach((node: any) => {
+      const data = node.data();
+      const matchesType = visibleTypes.includes(data.type);
+      const matchesSearch = searchTerm === '' || data.label.toLowerCase().includes(searchTerm.toLowerCase());
+      node.style('display', matchesType && matchesSearch ? 'element' : 'none');
+    });
+  }, [cyInstance, visibleTypes, searchTerm]);
 
   if (isFullscreen) {
     return (
@@ -135,22 +149,56 @@ export default function KnowledgeGraph() {
   }
 
   return (
-    <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
-      <div style={{ height: '90vh', width: '100%', position: 'relative' }}>
-        <div ref={cyRef} style={{ height: '100%', width: '100%' }}></div>
-        <div ref={tooltipRef} style={{
-          position: 'absolute',
-          backgroundColor: '#333',
-          color: '#fff',
-          padding: '8px',
-          borderRadius: '5px',
-          display: 'none',
-          pointerEvents: 'none',
-          fontSize: '12px',
-          maxWidth: '200px',
-          zIndex: 1000
-        }} />
+    <>
+      <div style={{ padding: '10px', background: '#f9f9f9', borderBottom: '1px solid #ddd' }}>
+        <div style={{ marginBottom: '10px' }}>
+          <strong>Filter by Type:</strong>
+          {['Protocol', 'Concept', 'Policy', 'Standard'].map((type) => (
+            <label key={type} style={{ marginLeft: '10px' }}>
+              <input
+                type="checkbox"
+                checked={visibleTypes.includes(type)}
+                onChange={() => {
+                  if (visibleTypes.includes(type)) {
+                    setVisibleTypes(visibleTypes.filter((t) => t !== type));
+                  } else {
+                    setVisibleTypes([...visibleTypes, type]);
+                  }
+                }}
+              />{' '}
+              {type}
+            </label>
+          ))}
+        </div>
+        <div>
+          <strong>Search:</strong>{' '}
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            placeholder="Search nodes..."
+            style={{ padding: '5px', width: '200px' }}
+          />
+        </div>
       </div>
-    </Layout>
+
+      <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
+        <div style={{ height: '90vh', width: '100%', position: 'relative' }}>
+          <div ref={cyRef} style={{ height: '100%', width: '100%' }}></div>
+          <div ref={tooltipRef} style={{
+            position: 'absolute',
+            backgroundColor: '#333',
+            color: '#fff',
+            padding: '8px',
+            borderRadius: '5px',
+            display: 'none',
+            pointerEvents: 'none',
+            fontSize: '12px',
+            maxWidth: '200px',
+            zIndex: 1000
+          }} />
+        </div>
+      </Layout>
+    </>
   );
 }
