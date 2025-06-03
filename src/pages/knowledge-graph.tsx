@@ -108,7 +108,7 @@ export default function KnowledgeGraph() {
       <strong>${nodeData.label}</strong><br/>
       ${nodeData.summary}<br/>
       <em>Version: ${nodeData.version}</em><br/>
-      <a href="${docUrl}" target="_blank" style="color:#ffd;">Open Spec ↗</a>
+      <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
     `;
   }
 });
