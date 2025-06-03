@@ -1,10 +1,15 @@
 {
-  "extends": "@docusaurus/core/tsconfig/tsconfig.json",
   "compilerOptions": {
-    "jsx": "react-jsx",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "allowSyntheticDefaultImports": true,
     "esModuleInterop": true,
-    "moduleResolution": "node",
-    "allowSyntheticDefaultImports": true
+    "jsx": "react-jsx",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "isolatedModules": true
   },
   "include": [
     "src",
