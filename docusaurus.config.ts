@@ -1,6 +1,8 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
-import type { ThemeConfig } from '@docusaurus/preset-classic';
+import type * as Preset from '@docusaurus/preset-classic';
+
+const isProd = process.env.NODE_ENV === 'production';
 
 const config: Config = {
   title: 'The Human Channel',
@@ -21,10 +23,11 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          path: 'docs',
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.ts'),
-        },
+  id: 'default',  // or no id at all (default behavior)
+  path: 'docs',
+  routeBasePath: '/',
+  sidebarPath: require.resolve('./sidebars.ts'),
+},
         blog: {
           showReadingTime: true,
         },
@@ -36,7 +39,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: 'img/og-main.png',
+    image: '/assets/og-images/og-main.png',
     navbar: {
       title: 'The Human Channel',
       logo: {
@@ -65,7 +68,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula
     }
-  } satisfies ThemeConfig
+  } satisfies Preset.ThemeConfig
 };
 
 export default config;
