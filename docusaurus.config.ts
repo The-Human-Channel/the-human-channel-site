@@ -1,8 +1,6 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
-import type * as Preset from '@docusaurus/preset-classic';
-
-const isProd = process.env.NODE_ENV === 'production';
+import type { ThemeConfig } from '@docusaurus/preset-classic';
 
 const config: Config = {
   title: 'The Human Channel',
@@ -23,11 +21,10 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-  id: 'default',  // or no id at all (default behavior)
-  path: 'docs',
-  routeBasePath: '/',
-  sidebarPath: require.resolve('./sidebars.ts'),
-},
+          path: 'docs',
+          routeBasePath: '/',
+          sidebarPath: require.resolve('./sidebars.ts'),
+        },
         blog: {
           showReadingTime: true,
         },
@@ -39,7 +36,7 @@ const config: Config = {
   ],
 
   themeConfig: {
-    image: '/assets/og-images/og-main.png',
+    image: 'img/og-main.png',
     navbar: {
       title: 'The Human Channel',
       logo: {
@@ -47,8 +44,8 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
+        { to: '/', label: 'Docs', position: 'left' },
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: 'docs', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/the-human-channel/the-human-channel-site',
           label: 'GitHub',
@@ -68,9 +65,7 @@ const config: Config = {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula
     }
-  } satisfies Preset.ThemeConfig
+  } satisfies ThemeConfig
 };
 
 export default config;
-
-
