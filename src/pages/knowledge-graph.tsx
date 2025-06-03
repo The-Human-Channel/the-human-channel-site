@@ -94,31 +94,40 @@ export default function KnowledgeGraph() {
             const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
             window.open(docPath, '_blank');
           });
+let tooltipTimer: any = null;
 
-          cy.on('mouseover', 'node', (evt) => {
+cy.on('mouseover', 'node', (evt) => {
+  clearTimeout(tooltipTimer); // cancel any hide delay
+
   const nodeData = evt.target.data();
+  const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+
   if (tooltipRef.current) {
-    tooltipRef.current.style.display = 'block';
-    tooltipRef.current.style.left = `${evt.originalEvent.pageX + 10}px`;
-    tooltipRef.current.style.top = `${evt.originalEvent.pageY + 10}px`;
-
-    const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
-
     tooltipRef.current.innerHTML = `
       <strong>${nodeData.label}</strong><br/>
       ${nodeData.summary}<br/>
       <em>Version: ${nodeData.version}</em><br/>
       <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
     `;
+    tooltipRef.current.style.display = 'block';
   }
+
+  cyRef.current?.addEventListener('mousemove', (e) => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.left = `${e.pageX + 10}px`;
+      tooltipRef.current.style.top = `${e.pageY + 10}px`;
+    }
+  });
 });
 
+cy.on('mouseout', 'node', () => {
+  tooltipTimer = setTimeout(() => {
+    if (tooltipRef.current) {
+      tooltipRef.current.style.display = 'none';
+    }
+  }, 300);  // <-- delay hides after 300ms
+});
 
-          cy.on('mouseout', 'node', () => {
-            if (tooltipRef.current) {
-              tooltipRef.current.style.display = 'none';
-            }
-          });
 
           setCyInstance(cy);
         });
