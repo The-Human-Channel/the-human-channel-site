@@ -1,6 +1,8 @@
 # The Human Channel — Roadmap
 
-## v1.0 (Foundational Specification Build-Out)
+---
+
+## v1.0 — Foundational Specification Build-Out
 
 - Consent-First AI Core Philosophy
 - Trust Stack Architecture
@@ -12,7 +14,7 @@
 
 ---
 
-## v2.0 (Technical Implementation Prototypes)
+## v2.0 — Technical Implementation Prototypes
 
 - Open Reference Implementations for Smart Packets
 - Consent Layer SDKs
@@ -23,7 +25,7 @@
 
 ---
 
-## v3.0 (Ecosystem Expansion)
+## v3.0 — Ecosystem Expansion
 
 - Interoperability Standards with Global Regulatory Bodies
 - Integration Pathways with AI Vendors and Cloud Platforms
@@ -34,7 +36,7 @@
 
 ---
 
-## v4.0 (Public Governance and Protocol Stewardship)
+## v4.0 — Public Governance and Protocol Stewardship
 
 - Formalize The Human Channel Public Standards Body
 - Establish Governance and Voting Procedures for Standards Evolution
@@ -45,12 +47,13 @@
 
 ## Guiding Principle
 
-This roadmap reflects The Human Channel's long-term commitment:
+The Human Channel exists to build enforceable AI governance at the protocol level.  
+We serve regulators, organizations, enterprises, and individuals who seek:
 
-- Build enforceable AI governance at the protocol level.
-- Serve regulators, organizations, and individuals seeking safe AI.
-- Future-proof AI systems before harms accumulate.
-- Keep human agency at the center of every AI system on earth.
+- Trustworthy, enforceable AI standards
+- Consent-based human agency in every interaction
+- Future-proof AI safety ahead of public harms
+- Global transparency + accountability
 
 ---
 
