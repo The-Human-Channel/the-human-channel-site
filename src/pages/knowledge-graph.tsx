@@ -6,75 +6,73 @@ export default function KnowledgeGraph() {
   const cyRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-  if (cyRef.current) {
-    fetch('/the-human-channel-site/graph/knowledge-graph.json')
-      .then(res => res.json())
-      .then(data => {
-        const cy = cytoscape({
-          container: cyRef.current,
-          style: [
-            {
-              selector: 'node',
-              style: {
-                'label': 'data(label)',
-                'text-valign': 'center',
-                'color': '#fff',
-                'text-outline-width': 1,
-                'font-weight': 'bold',
-                'font-size': '8px',
-                'width': '30px',
-                'height': '30px'
+    if (cyRef.current) {
+      fetch('/the-human-channel-site/graph/knowledge-graph.json')
+        .then(res => res.json())
+        .then(data => {
+          const cy = cytoscape({
+            container: cyRef.current,
+            style: [
+              {
+                selector: 'node',
+                style: {
+                  'label': 'data(label)',
+                  'text-valign': 'center',
+                  'color': '#fff',
+                  'text-outline-width': 1,
+                  'font-weight': 'bold',
+                  'font-size': '8px',
+                  'width': '30px',
+                  'height': '30px'
+                }
+              },
+              {
+                selector: 'edge',
+                style: {
+                  'label': 'data(relation)',
+                  'width': 1.5,
+                  'line-color': '#ccc',
+                  'target-arrow-color': '#ccc',
+                  'target-arrow-shape': 'triangle',
+                  'font-size': '7px'
+                }
+              },
+              {
+                selector: '.protocol',
+                style: { 'background-color': '#2e8556', 'text-outline-color': '#2e8556' }
+              },
+              {
+                selector: '.concept',
+                style: { 'background-color': '#497897', 'text-outline-color': '#497897' }
+              },
+              {
+                selector: '.policy',
+                style: { 'background-color': '#f65228', 'text-outline-color': '#f65228' }
+              },
+              {
+                selector: '.standard',
+                style: { 'background-color': '#9bcbd5', 'text-outline-color': '#9bcbd5' }
               }
-            },
-            {
-              selector: 'edge',
-              style: {
-                'label': 'data(relation)',
-                'width': 1.5,
-                'line-color': '#ccc',
-                'target-arrow-color': '#ccc',
-                'target-arrow-shape': 'triangle',
-                'font-size': '7px'
-              }
-            },
-            {
-              selector: '.protocol',
-              style: { 'background-color': '#2e8556', 'text-outline-color': '#2e8556' }
-            },
-            {
-              selector: '.concept',
-              style: { 'background-color': '#497897', 'text-outline-color': '#497897' }
-            },
-            {
-              selector: '.policy',
-              style: { 'background-color': '#f65228', 'text-outline-color': '#f65228' }
-            },
-            {
-              selector: '.standard',
-              style: { 'background-color': '#9bcbd5', 'text-outline-color': '#9bcbd5' }
-            }
-          ],
-          elements: [
-            ...data.nodes.map((node: any) => ({
-              data: node,
-              classes: node.type.toLowerCase()
-            })),
-            ...data.edges.map((edge: any) => ({ data: edge }))
-          ],
-          layout: { name: 'cose' }
-        });
+            ],
+            elements: [
+              ...data.nodes.map((node: any) => ({
+                data: node,
+                classes: node.type.toLowerCase()
+              })),
+              ...data.edges.map((edge: any) => ({ data: edge }))
+            ],
+            layout: { name: 'cose' }
+          });
 
-        // Add node click behavior
-        cy.on('tap', 'node', (evt) => {
-          const nodeData = evt.target.data();
-          // build doc link based on node id (customize per your real docs paths)
-          const docPath = `/the-human-channel-site/docs/${nodeData.id}`;
-          window.open(docPath, '_blank');
+          // Updated click behavior using docPath field
+          cy.on('tap', 'node', (evt) => {
+            const nodeData = evt.target.data();
+            const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
+            window.open(docPath, '_blank');
+          });
         });
-      });
-  }
-}, []);
-
+    }
+  }, []);
 
   return (
     <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
