@@ -23,10 +23,11 @@ const config: Config = {
       '@docusaurus/preset-classic',
       {
         docs: {
-          path: 'docs',
-          routeBasePath: '/',
-          sidebarPath: require.resolve('./sidebars.js'),
-        },
+  id: 'default',  // or no id at all (default behavior)
+  path: 'docs',
+  routeBasePath: '/',
+  sidebarPath: require.resolve('./sidebars.ts'),
+},
         blog: {
           showReadingTime: true,
         },
