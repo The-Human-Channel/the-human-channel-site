@@ -96,14 +96,23 @@ export default function KnowledgeGraph() {
           });
 
           cy.on('mouseover', 'node', (evt) => {
-            const nodeData = evt.target.data();
-            if (tooltipRef.current) {
-              tooltipRef.current.style.display = 'block';
-              tooltipRef.current.style.left = `${evt.originalEvent.pageX + 10}px`;
-              tooltipRef.current.style.top = `${evt.originalEvent.pageY + 10}px`;
-              tooltipRef.current.innerHTML = `<strong>${nodeData.label}</strong><br/>${nodeData.summary}<br/><em>Version: ${nodeData.version}</em>`;
-            }
-          });
+  const nodeData = evt.target.data();
+  if (tooltipRef.current) {
+    tooltipRef.current.style.display = 'block';
+    tooltipRef.current.style.left = `${evt.originalEvent.pageX + 10}px`;
+    tooltipRef.current.style.top = `${evt.originalEvent.pageY + 10}px`;
+
+    const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+
+    tooltipRef.current.innerHTML = `
+      <strong>${nodeData.label}</strong><br/>
+      ${nodeData.summary}<br/>
+      <em>Version: ${nodeData.version}</em><br/>
+      <a href="${docUrl}" target="_blank" style="color:#ffd;">Open Spec ↗</a>
+    `;
+  }
+});
+
 
           cy.on('mouseout', 'node', () => {
             if (tooltipRef.current) {
