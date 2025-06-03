@@ -114,8 +114,9 @@ cy.on('mouseover', 'node', (evt) => {
 
   cyRef.current?.addEventListener('mousemove', (e) => {
     if (tooltipRef.current) {
-      tooltipRef.current.style.left = `${e.pageX}px`;
-      tooltipRef.current.style.top = `${e.pageY}px`;
+      tooltipRef.current.style.left = `${e.pageX + 5}px`;
+      tooltipRef.current.style.top = `${e.pageY + 15}px`;
+
 
     }
   });
