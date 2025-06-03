@@ -11,7 +11,8 @@
   },
   "dependencies": {
     "@docusaurus/core": "^3.8.0",
-    "@docusaurus/preset-classic": "^3.8.0"
+    "@docusaurus/preset-classic": "^3.8.0",
+    "cytoscape": "^3.32.0"
   },
   "devDependencies": {
     "serve": "^14.2.4"
