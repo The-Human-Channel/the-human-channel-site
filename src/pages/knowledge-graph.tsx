@@ -2,8 +2,15 @@ import React, { useEffect, useRef } from 'react';
 import Layout from '@theme/Layout';
 import cytoscape from 'cytoscape';
 
+function useIsFullscreen() {
+  if (typeof window === 'undefined') return false;
+  const params = new URLSearchParams(window.location.search);
+  return params.get('fullscreen') === 'true';
+}
+
 export default function KnowledgeGraph() {
   const cyRef = useRef<HTMLDivElement>(null);
+  const isFullscreen = useIsFullscreen();
 
   useEffect(() => {
     if (cyRef.current) {
@@ -73,12 +80,10 @@ export default function KnowledgeGraph() {
             wheelSensitivity: 0.2
           });
 
-          // Center the graph after initial layout
           cy.ready(() => {
             cy.fit();
           });
 
-          // Node click behavior
           cy.on('tap', 'node', (evt) => {
             const nodeData = evt.target.data();
             const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
@@ -87,6 +92,14 @@ export default function KnowledgeGraph() {
         });
     }
   }, []);
+
+  if (isFullscreen) {
+    return (
+      <div style={{ height: '100vh', width: '100%', backgroundColor: '#fff' }}>
+        <div style={{ height: '100%', width: '100%' }} ref={cyRef}></div>
+      </div>
+    );
+  }
 
   return (
     <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
