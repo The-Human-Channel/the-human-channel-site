@@ -48,7 +48,7 @@ const config: Config = {
       },
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/', label: 'Whitepapers', position: 'left' },
+        { to: '/docs', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/the-human-channel/the-human-channel-site',
           label: 'GitHub',
@@ -59,7 +59,7 @@ const config: Config = {
     footer: {
       style: 'dark',
       links: [
-        { title: 'Docs', items: [{ label: 'Whitepapers', to: '/' }] },
+        { title: 'Docs', items: [{ label: 'Documents', to: '/' }] },
         { title: 'More', items: [{ label: 'Blog', to: '/blog' }] }
       ],
       copyright: 'Copyright © 2025 The Human Channel.'
