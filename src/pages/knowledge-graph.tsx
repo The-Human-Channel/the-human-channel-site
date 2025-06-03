@@ -19,9 +19,7 @@ export default function KnowledgeGraph() {
                   'label': 'data(label)',
                   'text-valign': 'center',
                   'color': '#fff',
-                  'background-color': '#2e8556',
                   'text-outline-width': 1,
-                  'text-outline-color': '#2e8556',
                   'font-weight': 'bold',
                   'font-size': '8px',
                   'width': '30px',
@@ -38,10 +36,41 @@ export default function KnowledgeGraph() {
                   'target-arrow-shape': 'triangle',
                   'font-size': '7px'
                 }
+              },
+              {
+                selector: '.protocol',
+                style: {
+                  'background-color': '#2e8556',
+                  'text-outline-color': '#2e8556'
+                }
+              },
+              {
+                selector: '.concept',
+                style: {
+                  'background-color': '#497897',
+                  'text-outline-color': '#497897'
+                }
+              },
+              {
+                selector: '.policy',
+                style: {
+                  'background-color': '#f65228',
+                  'text-outline-color': '#f65228'
+                }
+              },
+              {
+                selector: '.standard',
+                style: {
+                  'background-color': '#9bcbd5',
+                  'text-outline-color': '#9bcbd5'
+                }
               }
             ],
             elements: [
-              ...data.nodes.map((node: any) => ({ data: node })),
+              ...data.nodes.map((node: any) => ({
+                data: node,
+                classes: node.type.toLowerCase()  // dynamically assign class by type
+              })),
               ...data.edges.map((edge: any) => ({ data: edge }))
             ],
             layout: { name: 'cose' }
