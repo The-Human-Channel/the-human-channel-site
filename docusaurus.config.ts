@@ -44,15 +44,17 @@ const config: Config = {
         src: 'img/logo.svg',
       },
       items: [
-        { to: '/docs', label: 'Docs', position: 'left' },
-        { to: '/knowledge-graph', label: 'Knowledge Graph', position: 'left' },
-        { to: '/blog', label: 'Blog', position: 'left' },
-        {
-          href: 'https://github.com/the-human-channel/the-human-channel-site',
-          label: 'GitHub',
-          position: 'right'
-        }
-      ]
+  { to: 'docs', label: 'Docs', position: 'left' },
+  { to: 'knowledge-graph', label: 'Knowledge Graph', position: 'left' },
+  { to: 'blog', label: 'Blog', position: 'left' },
+  {
+    href: 'https://github.com/the-human-channel/the-human-channel-site',
+    label: 'GitHub',
+    position: 'right'
+  }
+]
+
+
     },
     footer: {
       style: 'dark',
