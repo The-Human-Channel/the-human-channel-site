@@ -48,7 +48,7 @@ const config: Config = {
       },
       items: [
         { to: '/blog', label: 'Blog', position: 'left' },
-        { to: '/docs', label: 'Docs', position: 'left' },
+        { to: 'docs', label: 'Docs', position: 'left' },
         {
           href: 'https://github.com/the-human-channel/the-human-channel-site',
           label: 'GitHub',
