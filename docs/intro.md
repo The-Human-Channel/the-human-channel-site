@@ -1,14 +1,11 @@
 ---
-sidebar_position: 1
+id: intro
+title: Welcome to The Human Channel
+slug: /
 ---
 
-# The Human Channel Whitepapers
+# Welcome to The Human Channel
 
-Welcome to The Human Channel Knowledge Base.
+Explore our whitepapers, protocols, and resources using the sidebar.
 
-- ✅ Smart Packet Identity Layer (SPID)
-- ✅ Permissioned AI Protocols
-- ✅ Trust Layer Architecture
-- ✅ Compliance Frameworks for AI Interactions
-
-> Full whitepapers will be published here soon.
+> Restoring trust, permission, and human interaction in the AI era.
