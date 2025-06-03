@@ -61,10 +61,24 @@ export default function KnowledgeGraph() {
               })),
               ...data.edges.map((edge: any) => ({ data: edge }))
             ],
-            layout: { name: 'cose' }
+            layout: {
+              name: 'cose',
+              animate: true,
+              fit: true,
+              padding: 50
+            },
+            zoomingEnabled: true,
+            minZoom: 0.5,
+            maxZoom: 2,
+            wheelSensitivity: 0.2
           });
 
-          // Updated click behavior using docPath field
+          // Center the graph after initial layout
+          cy.ready(() => {
+            cy.fit();
+          });
+
+          // Node click behavior
           cy.on('tap', 'node', (evt) => {
             const nodeData = evt.target.data();
             const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
@@ -76,7 +90,7 @@ export default function KnowledgeGraph() {
 
   return (
     <Layout title="Knowledge Graph" description="Interactive protocol knowledge graph">
-      <div style={{ height: '80vh', width: '100%' }} ref={cyRef}></div>
+      <div style={{ height: '90vh', width: '100%' }} ref={cyRef}></div>
     </Layout>
   );
 }
