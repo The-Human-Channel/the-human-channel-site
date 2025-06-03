@@ -1,0 +1,19 @@
+{
+  "nodes": [
+    { "id": "spid-protocol", "label": "SPID Protocol v1", "type": "Protocol" },
+    { "id": "consent-layer", "label": "Consent Layer Spec", "type": "Protocol" },
+    { "id": "smart-packet", "label": "Smart Packet Spec", "type": "Protocol" },
+    { "id": "trust-stack", "label": "Trust Stack", "type": "Concept" },
+    { "id": "privacy-policy", "label": "Privacy Position", "type": "Policy" },
+    { "id": "regulator-packet", "label": "Regulator Briefing Packet", "type": "Policy" },
+    { "id": "voice-detection", "label": "Clean Voice Detection", "type": "Standard" }
+  ],
+  "edges": [
+    { "source": "spid-protocol", "target": "trust-stack", "relation": "builds-on" },
+    { "source": "smart-packet", "target": "spid-protocol", "relation": "defined-in" },
+    { "source": "consent-layer", "target": "trust-stack", "relation": "implements" },
+    { "source": "privacy-policy", "target": "trust-stack", "relation": "aligned-with" },
+    { "source": "regulator-packet", "target": "privacy-policy", "relation": "explains" },
+    { "source": "voice-detection", "target": "spid-protocol", "relation": "linked-to" }
+  ]
+}
