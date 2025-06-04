@@ -94,47 +94,44 @@ export default function KnowledgeGraph() {
             const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
             window.open(docPath, '_blank');
           });
-let tooltipTimer: any = null;
 
-cy.on('mouseover', 'node', (evt) => {
-  clearTimeout(tooltipTimer);
+          let tooltipTimer: any = null;
 
-  const nodeData = evt.target.data();
-  const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+          cy.on('mouseover', 'node', (evt) => {
+            clearTimeout(tooltipTimer);
 
-  // Get true rendered position of node
-  const renderedPosition = evt.target.renderedPosition();
-  const containerRect = cyRef.current?.getBoundingClientRect();
+            const nodeData = evt.target.data();
+            const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
-  const xOffset = containerRect?.left ?? 0;
-  const yOffset = containerRect?.top ?? 0;
+            const renderedPosition = evt.target.renderedPosition();
+            const containerRect = cyRef.current?.getBoundingClientRect();
 
-  const tooltipX = xOffset + renderedPosition.x;
-  const tooltipY = yOffset + renderedPosition.y;
+            const xOffset = containerRect?.left ?? 0;
+            const yOffset = containerRect?.top ?? 0;
 
-  if (tooltipRef.current) {
-    tooltipRef.current.innerHTML = `
-      <strong>${nodeData.label}</strong><br/>
-      ${nodeData.summary}<br/>
-      <em>Version: ${nodeData.version}</em><br/>
-      <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
-    `;
-    tooltipRef.current.style.left = `${tooltipX + 20}px`;
-    tooltipRef.current.style.top = `${tooltipY + 20}px`;
-    tooltipRef.current.style.display = 'block';
-  }
-});
+            const tooltipX = xOffset + renderedPosition.x;
+            const tooltipY = yOffset + renderedPosition.y;
 
+            if (tooltipRef.current) {
+              tooltipRef.current.innerHTML = `
+                <strong>${nodeData.label}</strong><br/>
+                ${nodeData.summary}<br/>
+                <em>Version: ${nodeData.version}</em><br/>
+                <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
+              `;
+              tooltipRef.current.style.left = `${tooltipX + 20}px`;
+              tooltipRef.current.style.top = `${tooltipY + 20}px`;
+              tooltipRef.current.style.display = 'block';
+            }
+          });
 
-
-cy.on('mouseout', 'node', () => {
-  tooltipTimer = setTimeout(() => {
-    if (tooltipRef.current) {
-      tooltipRef.current.style.display = 'none';
-    }
-  }, 300);  // <-- delay hides after 300ms
-});
-
+          cy.on('mouseout', 'node', () => {
+            tooltipTimer = setTimeout(() => {
+              if (tooltipRef.current) {
+                tooltipRef.current.style.display = 'none';
+              }
+            }, 300);
+          });
 
           setCyInstance(cy);
         });
