@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import cytoscape from 'cytoscape';
 
+let tooltipTimer: ReturnType<typeof setTimeout> | null = null;
+
 function useIsFullscreen() {
   if (typeof window === 'undefined') return false;
   const params = new URLSearchParams(window.location.search);
@@ -97,32 +99,33 @@ export default function KnowledgeGraph() {
           });
 
           cy.on('mouseover', 'node', (evt: any) => {
-            clearTimeout(tooltipTimer);
+  if (tooltipTimer) clearTimeout(tooltipTimer);
 
-            const node = evt.target;
-            const nodeData = node.data();
-            const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+  const node = evt.target;
+  const nodeData = node.data();
+  const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
-            tooltipRef.current!.innerHTML = `
-              <strong>${nodeData.label}</strong><br/>
-              ${nodeData.summary}<br/>
-              <em>Version: ${nodeData.version}</em><br/>
-              <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
-            `;
+  tooltipRef.current!.innerHTML = `
+    <strong>${nodeData.label}</strong><br/>
+    ${nodeData.summary}<br/>
+    <em>Version: ${nodeData.version}</em><br/>
+    <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
+  `;
 
-            const pos = node.renderedPosition();
-            const containerRect = cyRef.current!.getBoundingClientRect();
+  const pos = node.renderedPosition();
+  const containerRect = cyRef.current!.getBoundingClientRect();
 
-            tooltipRef.current!.style.left = `${containerRect.left + pos.x}px`;
-            tooltipRef.current!.style.top = `${containerRect.top + pos.y - 30}px`;
-            tooltipRef.current!.style.display = 'block';
-          });
+  tooltipRef.current!.style.left = `${containerRect.left + pos.x}px`;
+  tooltipRef.current!.style.top = `${containerRect.top + pos.y - 30}px`;
+  tooltipRef.current!.style.display = 'block';
+});
 
-          cy.on('mouseout', 'node', () => {
-            tooltipTimer = setTimeout(() => {
-              tooltipRef.current!.style.display = 'none';
-            }, 300);
-          });
+cy.on('mouseout', 'node', () => {
+  tooltipTimer = setTimeout(() => {
+    tooltipRef.current!.style.display = 'none';
+  }, 400); // <-- ADD DELAY HERE
+});
+
 
           setCyInstance(cy);
         });
