@@ -123,7 +123,7 @@ export default function KnowledgeGraph() {
 cy.on('mouseout', 'node', () => {
   tooltipTimer = setTimeout(() => {
     tooltipRef.current!.style.display = 'none';
-  }, 600); // <-- ADD DELAY HERE
+  }, 1000); // <-- ADD DELAY HERE
 });
 
 
