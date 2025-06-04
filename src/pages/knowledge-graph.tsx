@@ -2,6 +2,8 @@ import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import cytoscape from 'cytoscape';
 
+let tooltipTimer: any = null;
+
 function useIsFullscreen() {
   if (typeof window === 'undefined') return false;
   const params = new URLSearchParams(window.location.search);
@@ -89,41 +91,33 @@ export default function KnowledgeGraph() {
             cy.fit();
           });
 
-          cy.on('tap', 'node', (evt) => {
-            const nodeData = evt.target.data();
-            const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
-            window.open(docPath, '_blank');
-          });
+          cy.on('mouseover', 'node', (evt: any) => {
+  clearTimeout(tooltipTimer);
 
-          let tooltipTimer: any = null;
+  const nodeData = evt.target.data();
+  const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
-          cy.on('mouseover', 'node', (evt) => {
-            clearTimeout(tooltipTimer);
+  const renderedPosition = evt.target.renderedPosition();
+  const containerRect = cyRef.current?.getBoundingClientRect();
+  if (!containerRect) return;
 
-            const nodeData = evt.target.data();
-            const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+  const tooltipX = containerRect.left + renderedPosition.x;
+  const tooltipY = containerRect.top + renderedPosition.y;
 
-            const renderedPosition = evt.target.renderedPosition();
-            const containerRect = cyRef.current?.getBoundingClientRect();
+  if (tooltipRef.current) {
+    tooltipRef.current.innerHTML = `
+      <strong>${nodeData.label}</strong><br/>
+      ${nodeData.summary}<br/>
+      <em>Version: ${nodeData.version}</em><br/>
+      <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
+    `;
+    tooltipRef.current.style.left = `${tooltipX + 10}px`;
+    tooltipRef.current.style.top = `${tooltipY + 10}px`;
+    tooltipRef.current.style.display = 'block';
+  }
+});
 
-            const xOffset = containerRect?.left ?? 0;
-            const yOffset = containerRect?.top ?? 0;
 
-            const tooltipX = xOffset + renderedPosition.x;
-            const tooltipY = yOffset + renderedPosition.y;
-
-            if (tooltipRef.current) {
-              tooltipRef.current.innerHTML = `
-                <strong>${nodeData.label}</strong><br/>
-                ${nodeData.summary}<br/>
-                <em>Version: ${nodeData.version}</em><br/>
-                <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
-              `;
-              tooltipRef.current.style.left = `${tooltipX + 5}px`;
-              tooltipRef.current.style.top = `${tooltipY + 5}px`;
-              tooltipRef.current.style.display = 'block';
-            }
-          });
 
           cy.on('mouseout', 'node', () => {
             tooltipTimer = setTimeout(() => {
