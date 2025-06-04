@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from 'react';
 import Layout from '@theme/Layout';
 import cytoscape from 'cytoscape';
 
-let tooltipTimer: any = null;
-
 function useIsFullscreen() {
   if (typeof window === 'undefined') return false;
   const params = new URLSearchParams(window.location.search);
@@ -18,15 +16,9 @@ export default function KnowledgeGraph() {
   const [cyInstance, setCyInstance] = useState<any>(null);
   const [visibleTypes, setVisibleTypes] = useState<string[]>(['Protocol', 'Concept', 'Policy', 'Standard']);
   const [searchTerm, setSearchTerm] = useState<string>('');
+  let tooltipTimer: any = null;
 
   useEffect(() => {
-    cyRef.current?.addEventListener('mousemove', (e: MouseEvent) => {
-  if (tooltipRef.current && tooltipRef.current.style.display === 'block') {
-    tooltipRef.current.style.left = `${e.pageX + 15}px`;
-    tooltipRef.current.style.top = `${e.pageY + 15}px`;
-  }
-});
-
     if (cyRef.current) {
       fetch('/the-human-channel-site/graph/knowledge-graph.json')
         .then(res => res.json())
@@ -98,35 +90,43 @@ export default function KnowledgeGraph() {
             cy.fit();
           });
 
+          cy.on('tap', 'node', (evt) => {
+            const nodeData = evt.target.data();
+            const docPath = `/the-human-channel-site/docs/${nodeData.docPath}`;
+            window.open(docPath, '_blank');
+          });
+
           cy.on('mouseover', 'node', (evt: any) => {
-  clearTimeout(tooltipTimer);
+            clearTimeout(tooltipTimer);
 
-  const nodeData = evt.target.data();
-  const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+            const nodeData = evt.target.data();
+            const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
-  tooltipRef.current!.innerHTML = `
-    <strong>${nodeData.label}</strong><br/>
-    ${nodeData.summary}<br/>
-    <em>Version: ${nodeData.version}</em><br/>
-    <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
-  `;
+            tooltipRef.current!.innerHTML = `
+              <strong>${nodeData.label}</strong><br/>
+              ${nodeData.summary}<br/>
+              <em>Version: ${nodeData.version}</em><br/>
+              <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
+            `;
 
-  tooltipRef.current!.style.display = 'block';
-});
-
-
-
+            tooltipRef.current!.style.display = 'block';
+          });
 
           cy.on('mouseout', 'node', () => {
             tooltipTimer = setTimeout(() => {
-              if (tooltipRef.current) {
-                tooltipRef.current.style.display = 'none';
-              }
+              tooltipRef.current!.style.display = 'none';
             }, 300);
           });
 
           setCyInstance(cy);
         });
+
+      cyRef.current.addEventListener('mousemove', (e: MouseEvent) => {
+        if (tooltipRef.current && tooltipRef.current.style.display === 'block') {
+          tooltipRef.current.style.left = `${e.clientX + 15}px`;
+          tooltipRef.current.style.top = `${e.clientY + 15}px`;
+        }
+      });
     }
   }, []);
 
