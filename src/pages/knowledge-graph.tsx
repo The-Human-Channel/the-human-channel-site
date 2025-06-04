@@ -98,6 +98,7 @@ export default function KnowledgeGraph() {
 
           cy.on('mouseover', 'node', (evt: any) => {
             clearTimeout(tooltipTimer);
+
             const node = evt.target;
             const nodeData = node.data();
             const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
@@ -109,11 +110,11 @@ export default function KnowledgeGraph() {
               <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
             `;
 
-            // Anchor directly under node position:
-            const containerRect = cyRef.current!.getBoundingClientRect();
             const pos = node.renderedPosition();
+            const containerRect = cyRef.current!.getBoundingClientRect();
+
             tooltipRef.current!.style.left = `${containerRect.left + pos.x}px`;
-            tooltipRef.current!.style.top = `${containerRect.top + pos.y + 40}px`;
+            tooltipRef.current!.style.top = `${containerRect.top + pos.y - 30}px`;
             tooltipRef.current!.style.display = 'block';
           });
 
@@ -152,7 +153,7 @@ export default function KnowledgeGraph() {
             display: 'none',
             pointerEvents: 'auto',
             fontSize: '12px',
-            maxWidth: '220px',
+            maxWidth: '200px',
             zIndex: 1000
           }} />
         </div>
@@ -206,7 +207,7 @@ export default function KnowledgeGraph() {
             display: 'none',
             pointerEvents: 'auto',
             fontSize: '12px',
-            maxWidth: '220px',
+            maxWidth: '200px',
             zIndex: 1000
           }} />
         </div>
