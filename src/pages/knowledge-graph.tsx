@@ -98,8 +98,8 @@ export default function KnowledgeGraph() {
 
           cy.on('mouseover', 'node', (evt: any) => {
             clearTimeout(tooltipTimer);
-
-            const nodeData = evt.target.data();
+            const node = evt.target;
+            const nodeData = node.data();
             const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
             tooltipRef.current!.innerHTML = `
@@ -109,6 +109,11 @@ export default function KnowledgeGraph() {
               <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
             `;
 
+            // Anchor directly under node position:
+            const containerRect = cyRef.current!.getBoundingClientRect();
+            const pos = node.renderedPosition();
+            tooltipRef.current!.style.left = `${containerRect.left + pos.x}px`;
+            tooltipRef.current!.style.top = `${containerRect.top + pos.y + 40}px`;
             tooltipRef.current!.style.display = 'block';
           });
 
@@ -120,13 +125,6 @@ export default function KnowledgeGraph() {
 
           setCyInstance(cy);
         });
-
-      cyRef.current.addEventListener('mousemove', (e: MouseEvent) => {
-        if (tooltipRef.current && tooltipRef.current.style.display === 'block') {
-          tooltipRef.current.style.left = `${e.clientX + 15}px`;
-          tooltipRef.current.style.top = `${e.clientY + 15}px`;
-        }
-      });
     }
   }, []);
 
@@ -152,9 +150,9 @@ export default function KnowledgeGraph() {
             padding: '8px',
             borderRadius: '5px',
             display: 'none',
-            pointerEvents: 'none',
+            pointerEvents: 'auto',
             fontSize: '12px',
-            maxWidth: '200px',
+            maxWidth: '220px',
             zIndex: 1000
           }} />
         </div>
@@ -206,9 +204,9 @@ export default function KnowledgeGraph() {
             padding: '8px',
             borderRadius: '5px',
             display: 'none',
-            pointerEvents: 'none',
+            pointerEvents: 'auto',
             fontSize: '12px',
-            maxWidth: '200px',
+            maxWidth: '220px',
             zIndex: 1000
           }} />
         </div>
