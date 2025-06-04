@@ -97,10 +97,20 @@ export default function KnowledgeGraph() {
 let tooltipTimer: any = null;
 
 cy.on('mouseover', 'node', (evt) => {
-  clearTimeout(tooltipTimer); // cancel any hide delay
+  clearTimeout(tooltipTimer);
 
   const nodeData = evt.target.data();
   const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
+
+  // Get true rendered position of node
+  const renderedPosition = evt.target.renderedPosition();
+  const containerRect = cyRef.current?.getBoundingClientRect();
+
+  const xOffset = containerRect?.left ?? 0;
+  const yOffset = containerRect?.top ?? 0;
+
+  const tooltipX = xOffset + renderedPosition.x;
+  const tooltipY = yOffset + renderedPosition.y;
 
   if (tooltipRef.current) {
     tooltipRef.current.innerHTML = `
@@ -109,18 +119,13 @@ cy.on('mouseover', 'node', (evt) => {
       <em>Version: ${nodeData.version}</em><br/>
       <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
     `;
+    tooltipRef.current.style.left = `${tooltipX + 20}px`;
+    tooltipRef.current.style.top = `${tooltipY + 20}px`;
     tooltipRef.current.style.display = 'block';
   }
-
-  cyRef.current?.addEventListener('mousemove', (e) => {
-    if (tooltipRef.current) {
-      tooltipRef.current.style.left = `${e.pageX + 5}px`;
-      tooltipRef.current.style.top = `${e.pageY + 15}px`;
-
-
-    }
-  });
 });
+
+
 
 cy.on('mouseout', 'node', () => {
   tooltipTimer = setTimeout(() => {
