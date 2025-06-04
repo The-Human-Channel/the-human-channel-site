@@ -20,6 +20,13 @@ export default function KnowledgeGraph() {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   useEffect(() => {
+    cyRef.current?.addEventListener('mousemove', (e: MouseEvent) => {
+  if (tooltipRef.current && tooltipRef.current.style.display === 'block') {
+    tooltipRef.current.style.left = `${e.pageX + 15}px`;
+    tooltipRef.current.style.top = `${e.pageY + 15}px`;
+  }
+});
+
     if (cyRef.current) {
       fetch('/the-human-channel-site/graph/knowledge-graph.json')
         .then(res => res.json())
@@ -97,25 +104,16 @@ export default function KnowledgeGraph() {
   const nodeData = evt.target.data();
   const docUrl = `/the-human-channel-site/docs/${nodeData.docPath}`;
 
-  const renderedPosition = evt.target.renderedPosition();
-  const containerRect = cyRef.current?.getBoundingClientRect();
-  if (!containerRect) return;
+  tooltipRef.current!.innerHTML = `
+    <strong>${nodeData.label}</strong><br/>
+    ${nodeData.summary}<br/>
+    <em>Version: ${nodeData.version}</em><br/>
+    <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
+  `;
 
-  const tooltipX = containerRect.left + renderedPosition.x;
-  const tooltipY = containerRect.top + renderedPosition.y;
-
-  if (tooltipRef.current) {
-    tooltipRef.current.innerHTML = `
-      <strong>${nodeData.label}</strong><br/>
-      ${nodeData.summary}<br/>
-      <em>Version: ${nodeData.version}</em><br/>
-      <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
-    `;
-    tooltipRef.current.style.left = `${tooltipX + 10}px`;
-    tooltipRef.current.style.top = `${tooltipY + 10}px`;
-    tooltipRef.current.style.display = 'block';
-  }
+  tooltipRef.current!.style.display = 'block';
 });
+
 
 
 
