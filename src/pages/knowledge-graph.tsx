@@ -119,8 +119,8 @@ export default function KnowledgeGraph() {
                 <em>Version: ${nodeData.version}</em><br/>
                 <a href="${docUrl}" target="_blank" style="color:#00bfff;">Open Spec ↗</a>
               `;
-              tooltipRef.current.style.left = `${tooltipX + 20}px`;
-              tooltipRef.current.style.top = `${tooltipY + 20}px`;
+              tooltipRef.current.style.left = `${tooltipX + 5}px`;
+              tooltipRef.current.style.top = `${tooltipY + 5}px`;
               tooltipRef.current.style.display = 'block';
             }
           });
